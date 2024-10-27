@@ -1,0 +1,525 @@
+// VARIABILI 
+$primary-color: rgba(128, 0, 128, 0.295);
+$accent-color: #910daca8;
+$hover-color: rgba(50, 47, 185, 0.7);
+$gallery-hover: rgba(153, 47, 185, 0.534);
+$text-color: rgba(0, 0, 0, 0.781);
+$white: #fff;
+
+// MIXINS
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// STILI BASE
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: {
+    image: url('../assets/img/background.png');
+    size: cover;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+// FONT
+%font-base {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// LAYOUT DELLA GRIGLIA
+.grid-container {
+  display: grid;
+  grid-template: {
+    columns: repeat(6, 1fr);
+    rows: repeat(4, 1fr);
+  }
+  width: 100vw;
+  height: 100vh;
+  gap: 1px;
+
+  > .grid-item {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    padding-top: 100%;
+    border: 1px solid rgba(134, 134, 134, 0.103);
+    @include flex-center;
+    font-size: 1em;
+    color: $text-color;
+    background-size: cover;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    min-height: 150px;
+
+    > * {
+      @include position-center;
+    }
+  }
+}
+
+// LOGO
+.grid-item {
+  &.logo {
+    @include flex-center;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // LINKS
+  a {
+    font-family: 'Arial Narrow Bold', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: $text-color;
+    font-weight: bold;
+    text-align: center;
+
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+// ELEMENTI GRIGLIA
+.grid-item.gallery:hover {
+  background-color: $gallery-hover;
+  opacity: 0.7;
+}
+
+
+%image-hover {
+  background-color: $gallery-hover;
+  opacity: 0.7;
+}
+
+#grid-item-16,
+#grid-item-14,
+#grid-item-11,
+#grid-item-9,
+#grid-item-7,
+#grid-item-4,
+#grid-item-2 {
+  &:hover {
+    @extend %image-hover;
+  }
+}
+
+// TESTI GRIGLIA
+%text-grid-item {
+  display: block;
+  padding: 10px;
+
+  > * {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+#grid-item-17,
+#grid-item-15,
+#grid-item-12,
+#grid-item-10,
+#grid-item-8,
+#grid-item-5,
+#grid-item-3 {
+  @extend %text-grid-item;
+}
+
+// IMMAGINI GRIGLIA
+$background-images: (
+  16: 'irisva.jpg',
+  14: 'iconindex.png',
+  11: 'XIG.png',
+  9: 'OPENDAYDEF-01.png',
+  7: 'provagrafdenti.png',
+  4: 'LocandinaPINKBOOK.png',
+  2: '2.png'
+);
+
+@each $item, $image in $background-images {
+  #grid-item-#{$item} {
+    background-image: url('../assets/img/#{$image}');
+  }
+}
+
+// SCROLL CONTAINER
+%scroll-container-base {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-container {
+  @extend %scroll-container-base;
+  height: 100vh;
+}
+
+.scroll-container-form {
+  @extend %scroll-container-base;
+  max-height: 80vh;
+  padding: 20px;
+}
+
+// GALLERY CONTAINER
+.container-gallery {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  @include hide-scrollbar;
+  
+}
+
+// TESTO E IMMAGINE AFFIANCATI
+.image-text-pair {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.image-item {
+  flex: 1;
+  margin-right: 20px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.text-item {
+  flex: 1;
+  @extend %font-base;
+
+  h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 40px;
+    margin-bottom: 100px;
+  }
+}
+
+// FORM STILI
+.form-container {
+  max-width: 800px;
+  background-color: $primary-color;
+  margin: 0 auto 50px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    @extend %font-base;
+    font-weight: bolder;
+    margin-top: 0;
+    color: $accent-color;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+// FORM ELEMENTI
+%form-element {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  @extend %font-base;
+}
+
+input, textarea {
+  @extend %form-element;
+}
+
+.submit-btn {
+  @extend %form-element;
+  background-color: $accent-color;
+  color: $white;
+  border: none;
+
+  &:hover {
+    background-color: #920dacee;
+    cursor: pointer;
+  }
+}
+
+// FORM CONTATTI
+.contact-info {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(128, 0, 128, 0.781);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    @extend %font-base;
+    font-weight: bold;
+    color: #debbe6;
+    margin-bottom: 10px;
+  }
+
+  p {
+    @extend %font-base;
+    font-weight: bold;
+    font-size: 16px;
+    color: #111010;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #111010;
+    text-decoration: none;
+
+    &:hover {
+      color: yellow;
+      font-size: 1.2em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        @extend a;
+      }
+    }
+  }
+}
+
+// CONTAINER
+.dropdown {
+  position: relative;
+  float: right;
+  margin: 50px;
+
+  // BOTTONE
+  .button {
+    @extend %font-base;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #920dac4f;
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0; // Rimosso il margin perché ora è sul container
+
+    &:hover {
+      background-color: rgba(65, 6, 118, 0.842);
+      transform: scale(1.05);
+    }
+  }
+
+  // MENU A DROPDOWN
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 200px;
+    background-color: #920dac4f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px 0;
+    margin-top: 5px;
+
+    a {
+      @extend %font-base;
+      color: $white;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(65, 6, 118, 0.842);
+      }
+    }
+  }
+
+
+  &:hover {
+    .dropdown-content {
+      display: block;
+    }
+  }
+}
+
+// HEADER E FOOTER
+#indexheader {
+  background-color: $primary-color;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  a {
+    @extend %font-base;
+    font-weight: bold;
+    color: #111010;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: $white;
+  @extend %font-base;
+
+  p {
+    margin: 0;
+  }
+}
+
+//MEDIA QUERIES
+@mixin responsive-text($base-size) {
+  font-size: $base-size;
+  
+  h1 {
+    font-size: $base-size * 2.4;
+  }
+  
+  p {
+    font-size: $base-size;
+  }
+  
+  #Info {
+    font-size: $base-size * 2.2;
+  }
+  
+  .text-item {
+    h1 {
+      font-size: $base-size * 2;
+      margin-bottom: $base-size * 2;
+    }
+    
+    p {
+      font-size: $base-size * 1.2;
+      margin-bottom: $base-size * 0.8;
+    }
+  }
+}
+
+// SCHERMI DI GRANDI DIMENSIONI (max-width: 1024px)
+@media (max-width: 1024px) {
+  body {
+    @include responsive-text(14px);
+  }
+}
+
+// TABLETS (max-width: 768px)
+@media (max-width: 768px) {
+  body {
+    @include responsive-text(12px);
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// SMART PHONES (max-width: 480px)
+@media (max-width: 480px) {
+  body {
+    @include responsive-text(10px);
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .image-text-pair {
+    flex-direction: column;
+    
+    .image-item, .text-item {
+      flex: none;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-container {
+    padding: 15px;
+  }
+}
