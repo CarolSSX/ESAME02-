@@ -337,13 +337,15 @@ input, textarea {
   }
 }
 
-// CONTAINER
+// Dropdown Container - versione sticky/fixed
 .dropdown {
-  position: relative;
-  float: right;
-  margin: 50px;
+  position: fixed; // Cambiato da relative a fixed
+  top: 20px;      // Distanza dal top
+  right: 20px;    // Distanza dalla destra
+  z-index: 1000;  // Assicura che stia sopra gli altri elementi
+  margin: 0;      // Rimosso il margin perché usiamo top/right per il posizionamento
 
-  // BOTTONE
+  // Il bottone principale mantiene lo stesso stile
   .button {
     @extend %font-base;
     padding: 15px 30px;
@@ -357,7 +359,6 @@ input, textarea {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 0; // Rimosso il margin perché ora è sul container
 
     &:hover {
       background-color: rgba(65, 6, 118, 0.842);
@@ -365,7 +366,7 @@ input, textarea {
     }
   }
 
-  // MENU A DROPDOWN
+  // Menu dropdown
   .dropdown-content {
     display: none;
     position: absolute;
@@ -394,11 +395,8 @@ input, textarea {
     }
   }
 
-
-  &:hover {
-    .dropdown-content {
-      display: block;
-    }
+  &:hover .dropdown-content {
+    display: block;
   }
 }
 
@@ -445,7 +443,7 @@ footer {
   }
 }
 
-//MEDIA QUERIES
+// Media Queries principali (come erano prima, senza essere influenzati dal tasto home)
 @mixin responsive-text($base-size) {
   font-size: $base-size;
   
@@ -474,17 +472,22 @@ footer {
   }
 }
 
-// SCHERMI DI GRANDI DIMENSIONI (max-width: 1024px)
+// Large screens (max-width: 1024px)
 @media (max-width: 1024px) {
   body {
     @include responsive-text(14px);
   }
 }
 
-// TABLETS (max-width: 768px)
+// Tablets (max-width: 768px)
 @media (max-width: 768px) {
   body {
     @include responsive-text(12px);
+  }
+
+  #works-page .logo,
+  #works-page .empty-tile {
+    display: none; // Nascondi il logo e le empty tiles sulla pagina works-page
   }
   
   .grid-container {
@@ -492,16 +495,22 @@ footer {
   }
 }
 
-// SMART PHONES (max-width: 480px)
+// Mobile phones (max-width: 480px)
 @media (max-width: 480px) {
   body {
     @include responsive-text(10px);
+  }
+
+  #works-page .logo,
+  #works-page .empty-tile {
+    display: none; // Nascondi il logo e le empty tiles sulla pagina works-page
   }
   
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
+
   .image-text-pair {
     flex-direction: column;
     
@@ -511,8 +520,8 @@ footer {
       margin-right: 0;
       margin-bottom: 20px;
     }
-  }
 
+  }
   
   .navbar {
     flex-direction: column;
@@ -521,5 +530,74 @@ footer {
   
   .form-container {
     padding: 15px;
+  }
+}
+
+// Dropdown tasto home (completamente separato)
+.dropdown {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  .button {
+    @extend %font-base;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #920dac4f;
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: rgba(65, 6, 118, 0.842);
+      transform: scale(1.05);
+    }
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 200px;
+    background-color: #920dac4f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px 0;
+    margin-top: 5px;
+
+    a {
+      @extend %font-base;
+      color: $white;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(65, 6, 118, 0.842);
+      }
+    }
+  }
+
+  &:hover .dropdown-content {
+    display: block;
+  }
+}
+
+// Media queries SOLO per il tasto home (opzionali e separati)
+@media (max-width: 480px) {
+  .dropdown {
+    .button {
+      padding: 10px 20px; // Leggermente più piccolo su mobile
+    }
   }
 }
