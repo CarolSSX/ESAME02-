@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <meta name="description" content="About section of Carol Sassano website">
+    <title>Carol Sassano</title>
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
@@ -13,19 +14,15 @@
    La programmazione di questa pagina mi ha fatto comprendere l'importanza di alt per il SEO. 
    Ho iserito il titolo dei progetti ma sono curiosa di sapere se ci sono modi migliori o ulteriori
    passaggi in merito.-->
-<header>
-   <div class="dropdown">
-    <a href="#" class="button">Menu</a>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="works.html">Works</a>
-      <a href="gallery.html">See gallery</a>
-      <a href="contacts.html">Contacts</a>
-      <a href="about.html">About</a>
-      <a href="servizi.html">Services</a>
-    </div>
-</header>
-<div class="container-gallery">
+
+    <!-- ESAME 02 - <title>, <meta content= "" e <strong> sono usati per l'ottimizzazione del SEO-->
+   <header>
+        <div></div>
+        <?php include 'menu.php'; ?>
+        </div>
+    </header>
+
+  <div class="container-gallery">
 
 
   <div class="image-text-pair">
@@ -45,9 +42,9 @@
   </div>
 </div>
 </div>
-<footer>
-    <p>© 2024 My Website - All rights reserved</p>
-</footer>
+    <footer>
+        <?php include 'footer.php'; ?>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+{
+  "menu": [
+    {
+      "title": "Home",
+      "link": "index.php"
+    },
+    {
+      "title": "Works",
+      "link": "works.php"
+    },
+    {
+      "title": "See gallery",
+      "link": "gallery.php"
+    },
+    {
+      "title": "Contacts",
+      "link": "contacts.php"
+    },
+    {
+      "title": "About",
+      "link": "about.php"
+    },
+    {
+      "title": "Services",
+      "link": "servizi.php"
+    }
+  ]
+}

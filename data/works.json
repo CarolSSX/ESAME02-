@@ -1,0 +1,61 @@
+{
+  "works": [
+    {
+      "title": "D4BASE",
+      "type": "Sculpture",
+      "year": 2019,
+      "description": "Textile/sculptural project made of acrylic and merino wool for the D4 art gallery in Venice. The project combines ancient textile techniques with modern patterns to create an anachronistic and contemporary sculpture that represents the essence of the D4 BASE collective.",
+      "image": "assets/img/2.png",
+      "link": "DI4BASE.php"
+
+    },
+    {
+      "title": "PINKBOOK",
+      "type": "Sculpture",
+      "year": 2023,
+      "description": "For the collective exhibition of the visual arts and fashion course curated by Joseph Kosuth, the project is located at the SPUMA gallery in Giudecca, Venice, and includes a book made with various techniques and materials that retraces the artist's life. The curation of the individual projects was overseen by Linda Motto and Federica Serri.",
+      "image": "assets/img/LocandinaPINKBOOK.png",
+      "link": "PINKBOOK.php"
+    },
+    {
+      "title": "ET",
+      "type": "Graphic Design / Sound Design",
+      "year": 2023,
+      "description": "For the podcast series hosting conversations with national and international artists and showcasing musical projects from the underground scene, a social media campaign was created under the supervision of DJ and visual artist ET MUSIC.",
+      "image": "assets/img/provagrafdenti.png",
+      "link": "ETMUSIC.php"
+    },
+    {
+      "title": "MIT Design X",
+      "type": "Communication / Graphic Design / Web Development",
+      "year": 2023,
+      "description": "During the internship at SerenDPT (Serenissima Development Preservation Technology), I created graphic and audio-visual materials for a series of meetings with MIT Design from Boston to discuss the company's initiative to promote young eco-sustainable startups.",
+      "image": "assets/img/OPENDAYDEF-01.png",
+      "link": "MITDESIGNX.php"
+    },
+    {
+      "title": "01000010",
+      "type": "Communication / Graphic Design",
+      "year": 2023,
+      "description": "A mix of visual culture, memes, and philosophy. In this visual essay on web culture and its visual imaginaries, many juxtapositions arise when deeply studying a world that should not be interpreted.",
+      "image": "assets/img/XIG.png",
+      "link": "01000010.php"
+    },
+    {
+      "title": "VISAGE",
+      "type": "Communication / 3D Graphics / Visual Arts",
+      "year": 2023,
+      "description": "This exhibition showcases a series of virtual artworks that blend cutting-edge digital techniques with classical aesthetics. The presentation delves into the concept of 'reality versus simulation,' exploring how virtual environments can evoke emotional responses similar to traditional art.",
+      "image": "assets/img/iconindex.png",
+      "link": "VISAGE.php"
+    },
+    {
+      "title": "IRIS VAN HERPEN",
+      "type": "Communication / Graphic Design / Copywriting",
+      "year": 2021,
+      "description": "The article explores the groundbreaking HEARTHRISE collection by Iris Van Herpen, a fusion of fashion, technology, and nature. This presentation highlights how Van Herpen continues to push the boundaries of haute couture by incorporating innovative materials and techniques such as 3D printing and laser cutting. The HEARTHRISE collection draws inspiration from organic forms and natural phenomena, mimicking the growth patterns of crystals and the fluidity of water. The designs embody a delicate balance between strength and fragility, showcasing Van Herpen’s vision for the future of fashion as a bridge between art and science.",
+      "image": "assets/img/irisva.jpg",
+      "link": "IRISVANH.php"
+    }
+  ]
+}

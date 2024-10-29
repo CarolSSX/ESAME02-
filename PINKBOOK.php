@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <meta name="description" content="Sculpture project PINK BOOK by Carol Sassano">
+    <title>Carol Sassano - PINK BOOK</title>
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
+    <!-- ESAME 02 - <title>, <meta content= "" e <strong> sono usati per l'ottimizzazione del SEO-->
 <body>
-
-  <!-- Le immagini utilizzate sono progetti reali e sono realizzate da me, con l'eccezione di EARTHRISE 
-   di Iris Van Herpen.
-   La programmazione di questa pagina mi ha fatto comprendere l'importanza di alt per il SEO. 
-   Ho iserito il titolo dei progetti ma sono curiosa di sapere se ci sono modi migliori o ulteriori
-   passaggi in merito.-->
-
+    <header>
+        <div></div>
+        <?php include 'menu.php'; ?>
+        </div>
+    </header>
 
 <div class="container-gallery">
 
   <div class="image-text-pair">
       <div class="image-item">
-          <img src="assets/img/LocandinaPINKBOOK.png" alt="PINKBOOK">
+          <img src="assets/img/LocandinaPINKBOOK.png" alt="PINKBOOK by Carol Sassano">
       </div>
       <div ID="PINKBOOK" class="text-item">
           <h1>PINK<br>BOOK<br>EXIBITION<br>//2023</h1>
@@ -32,8 +32,9 @@
       </div>
   </div>
 
-
-
+  <footer>
+    <?php include 'footer.php'; ?>
+</footer>
 
 </body>
 </html>
