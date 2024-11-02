@@ -35,5 +35,23 @@
         "email": "baggoring@gmmail.com",
         "message": "Ciao sono Frodo, dove lo metto questo anello?",
         "submitted_at": "2024-10-29 12:45:26"
+    },
+    {
+        "name": "Sansone Naso",
+        "email": "nasoSan@gmail.com",
+        "message": "Buona sera, richiedo informazioni su prezzi. Grazie\r\nSN",
+        "submitted_at": "2024-11-02 17:33:37"
+    },
+    {
+        "name": "Mina La Strada",
+        "email": "minalastrada@gmail.com",
+        "message": "Occhio a dove cammini!",
+        "submitted_at": "2024-11-02 17:42:58"
+    },
+    {
+        "name": "Carol",
+        "email": "carolina.sassano@gmail.com",
+        "message": "Prova",
+        "submitted_at": "2024-11-02 18:47:39"
     }
 ]

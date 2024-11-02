@@ -1,19 +1,14 @@
 <?php
-
-/**
- * 
- * Questa è stata la pagina più difficile da fare, perchè il layout grafico è molto particolare. 
- * Ho dovuto usare la geometria usando le tiles e specificando tutte le tiles vuote, in modo che sugli schermi grandi,
- * che mostrano 6 tiles alla volta, ci fossero comunque sempre le giuste coppie "immagine-testo".
- * Ho dovuto aggiungere degli stili inline per evitare di complicare ulteriormente il sass, in particolare per la parte 
- * che gestisce le background images.
- */
-
 // Carico i dati dal JSON
 $worksData = file_get_contents('data/works.json');
 $worksArray = json_decode($worksData, true);
 $works = $worksArray['works'];
 
+// Accedere ai dati tramite l'id
+$worksById = [];
+foreach ($works as $work) {
+    $worksById[$work['id']] = $work;
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +23,9 @@ $works = $worksArray['works'];
 </head>
 <body id="works-page">
 
-<header>
     <div>
     <?php include 'menu.php'; ?>
     </div>
-</header>
 
     <div class="scroll-container">
         <div class="grid-container">
@@ -46,29 +39,32 @@ $works = $worksArray['works'];
             $totalTiles = 18; // numero totale di tiles (incluse quelle vuote)
             $emptyTiles = [3, 8, 15]; // posizioni delle tiles vuote
 
-            for ($i = 0; $i < $totalTiles; $i++):
-                if (in_array($i + 1, $emptyTiles)): // E' oppure no una empty-tile?
+            // Array di id specifico per l'ordine delle tile visualizzate
+            $orderedIds = [1, 2, 3, 4, 5, 6, 7]; 
+
+            // Ciclo per le tile
+            foreach (range(1, $totalTiles) as $position):
+                if (in_array($position, $emptyTiles)): // Se è una tile vuota, lasciala vuota
                     echo '<div class="grid-item empty-tile"></div>';
-                elseif ($i < count($works)):
-                    $work = $works[$i];
+                elseif (!empty($orderedIds)): // Se c'è un id
+                    $id = array_shift($orderedIds); // Estrae il primo id dall'elenco
+                    $work = $worksById[$id]; // Ottiene i dati dal JSON 
             ?>
                     <div class="grid-item">
-                        <img src="<?php echo $work['image']; ?>" alt="<?php echo htmlspecialchars($work['title']); ?>" style="width: 100%; height: 100%; object-fit: cover;"> <!-- stili inline -->
-                        <a href="<?php echo $work['link']; ?>" style="position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                            <h1><?php echo htmlspecialchars($work['title']); ?><br>//<?php echo $work['year']; ?></h1>
+                        <img src="<?php echo $work['image']; ?>" alt="<?php echo htmlspecialchars($work['title']); ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                        <a href="details.php?id=<?php echo $work['id']; ?>" style="position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+                            <h1 class="text-mq"><?php echo htmlspecialchars($work['title']); ?><br>//<?php echo $work['year']; ?></h1>
                         </a>
                     </div>
                     <div class="grid-item">
-                        <h1><?php echo htmlspecialchars($work['title']); ?><br>//<?php echo htmlspecialchars($work['type']); ?><br>//<?php echo $work['year']; ?></h1>
+                        <h1 class="text-mq"><?php echo htmlspecialchars($work['title']); ?><br>//<?php echo htmlspecialchars($work['type']); ?><br>//<?php echo $work['year']; ?></h1> 
                     </div>
                 <?php endif; ?>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 
-    <footer>
-        <?php include 'footer.php'; ?>
-    </footer>
+    <?php include 'footer.php'; ?>
 
 </body>
 

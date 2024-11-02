@@ -16,14 +16,13 @@ $works = $worksArray['works'];
 </head>
 <body>
 
-<header>
     <div></div>
     <?php include 'menu.php'; ?>
-</header>
+
 <!--Visualizzazione su due colonne, + la descrizione da works.php-->
 <div class="container-gallery">
     <?php foreach ($works as $work): ?>
-        <div class="image-text-pair">
+        <div class="image-text-pair" id="work-<?php echo htmlspecialchars($work['id']); ?>"> <!-- Aggiunto ID qui -->
             <div class="image-item">
                 <a href="<?php echo htmlspecialchars($work['link']); ?>">
                     <img src="<?php echo htmlspecialchars($work['image']); ?>" alt="<?php echo htmlspecialchars($work['title']); ?>">
@@ -38,9 +37,7 @@ $works = $worksArray['works'];
     <?php endforeach; ?>
 </div>
 
-<footer>
     <?php include 'footer.php'; ?>
-</footer>
 
 </body>
 </html>

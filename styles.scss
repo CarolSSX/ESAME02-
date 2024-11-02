@@ -240,6 +240,11 @@ $background-images: (
   }
 }
 
+.text-mq {
+  font-size: 18px;
+}
+
+
 // FORM STILI
 .form-container {
   max-width: 800px;
@@ -336,6 +341,7 @@ input, textarea {
     }
   }
 }
+
 
 // MENU DROPDOWN
 .dropdown {
@@ -469,12 +475,18 @@ footer {
       margin-bottom: $base-size * 0.8;
     }
   }
+
 }
+
+
 
 // (max-width: 1024px)
 @media (max-width: 1024px) {
   body {
     @include responsive-text(14px);
+  }
+  h1.text-mq {
+    font-size: 16px;
   }
 }
 
@@ -484,10 +496,15 @@ footer {
     @include responsive-text(12px);
   }
 
+  h1.text-mq {
+    font-size: 16px;
+  }
+
   #works-page .logo,
   #works-page .empty-tile {
     display: none; // Nasconde il logo e le empty tiles sulla pagina works-page per garantire una migliore visualizzazione su schermi più piccoli
   }
+
   
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
@@ -498,6 +515,10 @@ footer {
 @media (max-width: 480px) {
   body {
     @include responsive-text(10px);
+  }
+
+  h1.text-mq {
+    font-size: 16px;
   }
 
   #works-page .logo,

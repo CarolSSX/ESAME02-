@@ -2,15 +2,16 @@
   "services": [
     {
       "title": "BRANDING",
-      "description": "Brand Identity Design, Brand Strategy,Visual Brand Guidelines."
+      "description": "Brand Identity Design, Brand Strategy, Visual Brand Guidelines."
     },
     {
       "title": "LANDING PAGES",
-      "description": "Landing Page Design, Copywriting for Landing Pages, A/B Testing for Landing Pages"
+      "description": "Landing Page Design, Copywriting for Landing Pages, A/B Testing for Landing Pages."
     },
     {
       "title": "ILLUSTRATIONS",
-      "description": "Custom Illustrations, Infographic Design, Social Media Illustrations"
+      "description": "Custom Illustrations, Infographic Design, Social Media Illustrations."
     }
-  ]
+  ],
+  "image": "assets/img/servizi.png"
 }

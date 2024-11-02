@@ -1,6 +1,8 @@
 {
   "about": {
     "name": "ABOUT ME",
-    "description": "Based in Venice, Italy, I have always been involved in graphic design and visual culture. In 2024, I developed a passion for web development, acquiring skills in full stack programming. My education began at the Academy of Fine Arts in Venice, where I studied set design, 3D modeling, and CAD software. Subsequently, in 2024, I obtained a Master's degree in Visual Arts and Fashion, focusing my thesis on web visual culture and internet culture. In June of the same year, I started a master class in full stack development at Digital Campus in Turin."
+    "description": "Based in Venice, Italy, I have always been involved in graphic design and visual culture. In 2024, I developed a passion for web development, acquiring skills in full stack programming. My education began at the Academy of Fine Arts in Venice, where I studied set design, 3D modeling, and CAD software. Subsequently, in 2024, I obtained a Master's degree in Visual Arts and Fashion, focusing my thesis on web visual culture and internet culture. In June of the same year, I started a master class in full stack development at Digital Campus in Turin.",
+    "image": "assets/img/about.png"
   }
 }
+
